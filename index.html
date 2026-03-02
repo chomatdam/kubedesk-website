@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KubeDesk — Native macOS Client for KubeVirt &amp; Kubernetes</title>
+    <meta name="description" content="Connect to KubeVirt virtual machines and Kubernetes pods via RDP, VNC, and SSH. Native macOS desktop app — no kubectl or external binaries needed.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="container nav-inner">
+        <a href="#" class="nav-brand">
+            <span class="nav-icon">&#9638;</span> KubeDesk
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#getting-started">Get Started</a>
+            <a href="#faq">FAQ</a>
+            <a href="#download" class="btn btn-sm">Download</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">&#9776;</button>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">Native macOS App for Kubernetes</div>
+        <h1>Connect to your VMs and Pods.<br>No kubectl required.</h1>
+        <p class="hero-sub">
+            KubeDesk is a native macOS desktop app for connecting to KubeVirt virtual machines
+            and Kubernetes pods via <strong>RDP</strong>, <strong>VNC</strong>, and <strong>SSH</strong> —
+            all from a single window.
+        </p>
+        <div class="hero-actions">
+            <a href="#download" class="btn btn-lg">Download for macOS</a>
+            <a href="#features" class="btn btn-lg btn-outline">See Features</a>
+        </div>
+        <p class="hero-note">macOS 26+ &middot; Apple Silicon &middot; Free 14-day trial</p>
+    </div>
+</section>
+
+<!-- Protocols Bar -->
+<section class="protocols">
+    <div class="container">
+        <div class="protocols-grid">
+            <div class="protocol-item">
+                <div class="protocol-icon">&#128421;</div>
+                <div>
+                    <strong>RDP</strong>
+                    <span>Windows desktops via FreeRDP</span>
+                </div>
+            </div>
+            <div class="protocol-item">
+                <div class="protocol-icon">&#128424;</div>
+                <div>
+                    <strong>VNC</strong>
+                    <span>Linux/KubeVirt consoles</span>
+                </div>
+            </div>
+            <div class="protocol-item">
+                <div class="protocol-icon">&#62;&lowbar;</div>
+                <div>
+                    <strong>SSH</strong>
+                    <span>Terminal sessions &amp; exec</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features -->
+<section id="features" class="features">
+    <div class="container">
+        <h2>Everything you need to manage remote sessions</h2>
+        <p class="section-sub">One app. Three protocols. Zero external dependencies.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#9881;</div>
+                <h3>Zero Dependencies</h3>
+                <p>No kubectl, ssh, or sshpass binaries needed. KubeDesk ships everything built-in — SSH via Citadel, K8s via native WebSocket, RDP via statically linked FreeRDP.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128193;</div>
+                <h3>KubeVirt + Pods</h3>
+                <p>Browse your Kubernetes contexts, namespaces, VMs, and pods from a sidebar. Auto-discover RDP/SSH/VNC services on KubeVirt VMs.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128196;</div>
+                <h3>Tabbed Sessions</h3>
+                <p>Open multiple concurrent RDP, VNC, and SSH sessions in tabs. Switch between them without losing state — sessions stay alive in the background.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128203;</div>
+                <h3>Clipboard Sharing</h3>
+                <p>Bidirectional clipboard sync for RDP sessions. Copy text on your Mac, paste in the remote Windows desktop, and vice versa.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128206;</div>
+                <h3>File Sharing</h3>
+                <p>Drag and drop files to transfer them to Windows VMs via RDP drive redirection. Files appear at <code>\\tsclient\KubeDesk</code> on the remote side.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128274;</div>
+                <h3>Exec Credential Plugins</h3>
+                <p>Full support for EKS, GKE, and other exec-based auth. KubeDesk imports your shell environment at startup — AWS_PROFILE, PATH, KUBECONFIG all work.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128267;</div>
+                <h3>Port Forwarding</h3>
+                <p>Native K8s port-forward relay built on Network.framework. No kubectl process to manage — connections go directly through the K8s API WebSocket.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128190;</div>
+                <h3>Saved Connections</h3>
+                <p>Save frequently used connections with credentials. Quickly reconnect to your VMs and pods without navigating the Kubernetes browser each time.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#128220;</div>
+                <h3>Detailed Logging</h3>
+                <p>Built-in structured logging to daily log files. Debug connection issues with logs accessible from the Help menu — no Console.app hunting needed.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works">
+    <div class="container">
+        <h2>How it works</h2>
+        <p class="section-sub">Get connected in three steps.</p>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Select your context</h3>
+                <p>KubeDesk reads your kubeconfig automatically. Pick a Kubernetes context and namespace from the sidebar.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Choose a VM or Pod</h3>
+                <p>Browse KubeVirt virtual machines and pods. KubeDesk auto-scans for available services (RDP, VNC, SSH).</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Connect</h3>
+                <p>Click to open an RDP desktop, VNC console, or SSH terminal. A new tab opens instantly with a live session.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="pricing">
+    <div class="container">
+        <h2>Simple, transparent pricing</h2>
+        <p class="section-sub">Start with a free 14-day trial. No credit card required.</p>
+
+        <div class="pricing-grid">
+            <!-- Monthly -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Monthly</h3>
+                    <p class="pricing-desc">For individuals</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">9</span>
+                    <span class="price-period">/month</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>All features included</li>
+                    <li>RDP, VNC, and SSH</li>
+                    <li>Unlimited connections</li>
+                    <li>Unlimited sessions</li>
+                    <li>Cancel anytime</li>
+                </ul>
+                <a href="#download" class="btn btn-outline btn-block">Start Free Trial</a>
+                <p class="pricing-payment-note">Subscription via the Mac App Store</p>
+            </div>
+
+            <!-- Yearly -->
+            <div class="pricing-card pricing-card-featured">
+                <div class="pricing-badge">Save 17%</div>
+                <div class="pricing-header">
+                    <h3>Yearly</h3>
+                    <p class="pricing-desc">Best value for individuals</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-currency">$</span>
+                    <span class="price-amount">89</span>
+                    <span class="price-period">/year</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Everything in Monthly</li>
+                    <li>2 months free</li>
+                    <li>RDP, VNC, and SSH</li>
+                    <li>Unlimited connections</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#download" class="btn btn-block">Start Free Trial</a>
+                <p class="pricing-payment-note">Subscription via the Mac App Store</p>
+            </div>
+
+            <!-- Enterprise -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Team &amp; Enterprise</h3>
+                    <p class="pricing-desc">License keys for your org</p>
+                </div>
+                <div class="pricing-price">
+                    <span class="price-amount" style="font-size: 2rem;">Custom</span>
+                </div>
+                <ul class="pricing-features">
+                    <li>Seat-based license keys</li>
+                    <li>5&ndash;19 seats: <strong>15% off</strong></li>
+                    <li>20&ndash;49 seats: <strong>25% off</strong></li>
+                    <li>50+ seats: custom pricing</li>
+                    <li>Centralized management</li>
+                </ul>
+                <a href="#enterprise-contact" class="btn btn-outline btn-block">Get a Quote</a>
+                <p class="pricing-payment-note">We'll get back to you within 24 hours</p>
+            </div>
+        </div>
+
+        <!-- How to pay -->
+        <div class="pricing-info">
+            <div class="pricing-info-card pricing-info-card-wide">
+                <div class="pricing-info-icon">&#63743;</div>
+                <div>
+                    <h4>How to pay</h4>
+                    <p>Individual plans are billed as in-app subscriptions through the <strong>Mac App Store</strong> — pay with Apple Pay, credit card, or your Apple ID balance. For teams, we'll send you <strong>seat-based license keys</strong> after you get in touch below.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enterprise Contact Form -->
+        <div id="enterprise-contact" class="enterprise-form-wrapper">
+            <h3>Get a quote for your team</h3>
+            <p class="enterprise-form-desc">Tell us about your team and we'll get back to you within 24 hours with pricing and a trial license key.</p>
+            <form class="enterprise-form" action="https://formspree.io/f/xpqjgaag" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" required placeholder="Jane Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Work email</label>
+                        <input type="email" id="contact-email" name="email" required placeholder="jane@company.com">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-company">Company</label>
+                        <input type="text" id="contact-company" name="company" placeholder="Acme Corp">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-seats">Team size</label>
+                        <select id="contact-seats" name="seats">
+                            <option value="5-19">5&ndash;19 seats</option>
+                            <option value="20-49">20&ndash;49 seats</option>
+                            <option value="50+">50+ seats</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Anything else? <span class="form-optional">(optional)</span></label>
+                    <textarea id="contact-message" name="message" rows="3" placeholder="Tell us about your use case, timeline, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-block">Send Request</button>
+            </form>
+            <p class="enterprise-form-note">We'll respond to your work email. No spam, ever.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Getting Started -->
+<section id="getting-started" class="getting-started">
+    <div class="container">
+        <h2>Getting started</h2>
+        <p class="section-sub">Up and running in under a minute.</p>
+
+        <div class="gs-steps">
+            <div class="gs-step">
+                <div class="gs-step-num">1</div>
+                <div>
+                    <h3>Download &amp; Install</h3>
+                    <p>Download the DMG, drag KubeDesk to your Applications folder. Right-click and Open on first launch to bypass Gatekeeper (the app is not yet notarized).</p>
+                </div>
+            </div>
+            <div class="gs-step">
+                <div class="gs-step-num">2</div>
+                <div>
+                    <h3>Connect your kubeconfig</h3>
+                    <p>KubeDesk automatically reads your <code>~/.kube/config</code> and <code>KUBECONFIG</code> environment variable. It imports your shell environment at launch, so exec credential plugins (AWS, GCP) work out of the box.</p>
+                </div>
+            </div>
+            <div class="gs-step">
+                <div class="gs-step-num">3</div>
+                <div>
+                    <h3>Browse &amp; Connect</h3>
+                    <p>Select a Kubernetes context from the sidebar, browse namespaces, and click on any KubeVirt VM or pod. KubeDesk scans for available services and lets you open RDP, VNC, or SSH sessions with a single click.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download -->
+<section id="download" class="download">
+    <div class="container">
+        <h2>Download KubeDesk</h2>
+        <p class="section-sub">Free 14-day trial. macOS 26+ on Apple Silicon.</p>
+        <div class="download-actions">
+            <a href="https://s3.eu-west-3.amazonaws.com/kubedesk.chomat.us/KubeDesk.dmg" class="btn btn-lg btn-download">
+                Download for macOS
+                <span class="download-meta">Apple Silicon &middot; DMG</span>
+            </a>
+        </div>
+        <p class="download-note">
+            Not yet notarized — right-click &gt; Open on first launch.<br>
+            Requires macOS 26.2 or later.
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq">
+    <div class="container">
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq-grid">
+            <details class="faq-item">
+                <summary>Do I need kubectl installed?</summary>
+                <p>No. KubeDesk communicates directly with the Kubernetes API server via native WebSocket connections. No external binaries (kubectl, ssh, sshpass) are required.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Does it work with EKS, GKE, and AKS?</summary>
+                <p>Yes. KubeDesk imports your shell environment at startup, so exec credential plugins (like <code>aws</code>, <code>gcloud</code>, <code>kubelogin</code>) work the same as they do in your terminal.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>What about clusters with private CAs?</summary>
+                <p>KubeDesk reads the certificate authority data from your kubeconfig and validates server certificates against it. Clusters with self-signed or private CAs work out of the box.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I connect to regular VMs (not on Kubernetes)?</summary>
+                <p>Yes. You can save direct RDP, VNC, and SSH connections to any hostname or IP address — KubeDesk works as a general-purpose remote desktop client too.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Is there an Intel (x86_64) build?</summary>
+                <p>Not currently. KubeDesk is built for Apple Silicon (arm64) only. Intel Mac support may be added in the future.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>How does the free trial work?</summary>
+                <p>Download and use KubeDesk with all features for 14 days. No credit card required. After the trial, choose a monthly or yearly subscription, or contact us for team licensing.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I transfer files to remote VMs?</summary>
+                <p>Yes. For RDP sessions, drag and drop files in the sidebar to transfer them via drive redirection. Files appear at <code>\\tsclient\KubeDesk</code> on the remote Windows desktop.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>What protocols does VNC support?</summary>
+                <p>KubeDesk supports both WebSocket-based VNC (for KubeVirt VMs via the Kubernetes API) and direct TCP VNC connections. It implements the RFB protocol natively.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="nav-icon">&#9638;</span> KubeDesk
+            </div>
+            <div class="footer-links">
+                <a href="mailto:support@kubedesk.app">Support</a>
+                <a href="mailto:sales@kubedesk.app">Sales</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 KubeDesk. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Mobile nav toggle
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('nav-open');
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelector('.nav-links').classList.remove('nav-open');
+        }
+    });
+});
+</script>
+
+</body>
+</html>
